@@ -1,3 +1,1 @@
-Hii, I am Shweta Boraganve
-I am learning File handling in Python 
-From Apna College 
+hello shweta
