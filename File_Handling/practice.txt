@@ -1,4 +1,1 @@
-Hi everyone
-We are learning Fili I/O
-using Python
-I like programming in Python
+1, 2, 76, 84, 90, 101
