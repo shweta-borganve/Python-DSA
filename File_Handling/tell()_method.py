@@ -1,4 +1,8 @@
-#
+with open("student.txt", "r") as f:
+    f.seek(4)
+    print(f.tell()) 
+    f.read()
+    print(f.tell()) 
 
 with open("student.txt", "r") as f:
     print(f.tell())
