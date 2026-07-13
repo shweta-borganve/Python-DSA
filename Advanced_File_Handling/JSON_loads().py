@@ -7,4 +7,4 @@ student = [
 
 for i in student:
     data = json.loads(i)
-    print(data)
+    print(data) 
