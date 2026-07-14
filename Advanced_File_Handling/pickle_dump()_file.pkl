@@ -1,4 +1,4 @@
-import pickle
+import pickle 
 
 student = {
     "Name" : "Shweta",
@@ -13,4 +13,4 @@ print("Data saved Successfully")
 import pickle
 with open("student.pkl", "rb") as f:
     data = pickle.load(f)
-print(data) 
+print(data)  
