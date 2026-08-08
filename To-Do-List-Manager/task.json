@@ -1,0 +1,23 @@
+[
+    {
+        "task_id": "2",
+        "title": "practice sql",
+        "description": "solve 20 questions",
+        "due_date": "2026-12-09",
+        "status": "completed"
+    },
+    {
+        "task_id": "3",
+        "title": "update resume",
+        "description": "add latest python projects",
+        "due_date": "2026-08-10",
+        "status": "Completed"
+    },
+    {
+        "task_id": "4",
+        "title": "github upload",
+        "description": "push todo list manager to github",
+        "due_date": "2026-08-03",
+        "status": "completed"
+    }
+]

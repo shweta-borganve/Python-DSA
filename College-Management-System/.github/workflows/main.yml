@@ -1,0 +1,24 @@
+name: College Management System CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  run-app:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.x"
+
+    - name: Execute Main Script
+      run: |
+        echo -e "admin\npassword" | python main.py

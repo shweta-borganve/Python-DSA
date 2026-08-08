@@ -1,0 +1,16 @@
+[
+    {
+        "Faculty ID": "101",
+        "Name": "mahesh sir",
+        "Department": "EEE",
+        "Subject": "big data",
+        "Phone": "876786876"
+    },
+    {
+        "Faculty ID": "103",
+        "Name": "sujata mam",
+        "Department": "EEE",
+        "Subject": "psa 1",
+        "Phone": "878978788"
+    }
+] 

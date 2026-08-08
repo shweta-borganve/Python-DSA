@@ -1,0 +1,17 @@
+[
+    {
+        "title": "pushpa2",
+        "showtime": "8:00 PM",
+        "available_seats": 10
+    },
+    {
+        "title": "Leo",
+        "showtime": "10:00 PM",
+        "available_seats": 15
+    },
+    {
+        "title": "mahabharat",
+        "showtime": "10:00 PM",
+        "available_seats": 5
+    }
+]

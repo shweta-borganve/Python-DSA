@@ -1,0 +1,18 @@
+2026-08-04 23:45:56,251 - INFO - College Management System Started
+2026-08-04 23:46:06,415 - INFO - User logged in successfully
+2026-08-04 23:46:06,416 - INFO - User logged into the system
+2026-08-04 23:47:54,167 - DEBUG - Main menu choice: 1
+2026-08-04 23:47:54,168 - INFO - Opened Student Management
+2026-08-04 23:47:56,061 - DEBUG - Student menu choice: 1
+2026-08-04 23:48:25,942 - INFO - Student s101 added successfully
+2026-08-04 23:48:51,056 - DEBUG - Student menu choice: 2
+2026-08-04 23:48:58,416 - DEBUG - Student menu choice: 3
+2026-08-04 23:49:04,754 - DEBUG - Searching Student ID: 66
+2026-08-04 23:49:04,762 - WARNING - Student 66 not found
+2026-08-04 23:49:22,187 - DEBUG - Student menu choice: 4
+2026-08-04 23:49:28,342 - WARNING - Student 101 not found for update
+2026-08-04 23:49:45,208 - DEBUG - Student menu choice: 5
+2026-08-04 23:49:57,391 - INFO - Student s101 deleted successfully
+2026-08-04 23:50:08,132 - DEBUG - Student menu choice: 6
+2026-08-04 23:50:11,171 - DEBUG - Main menu choice: 6
+2026-08-04 23:50:11,171 - INFO - Application closed by user

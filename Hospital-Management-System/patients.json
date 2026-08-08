@@ -1,0 +1,15 @@
+[
+    {
+        "patient_id": "P103",
+        "name": "Priya",
+        "age": 22,
+        "gender": "female",
+        "disease": "Migrain",
+        "doctor": "mno",
+        "phone": "656575757",
+        "address": "bangalore",
+        "admission_date": "2026-02-09",
+        "appointment_date": "2026-12-07",
+        "appointment_time": "12:30"
+    }
+]

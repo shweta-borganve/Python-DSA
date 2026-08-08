@@ -1,0 +1,12 @@
+[
+    {
+        "account_no": "1002",
+        "name": "Shubham",
+        "phone": "866996886",
+        "account_type": "Savings",
+        "balance": 5500.0,
+        "transactions": [
+            "Received 500.0 from Account 1001"
+        ]
+    }
+]

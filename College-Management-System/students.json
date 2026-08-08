@@ -1,0 +1,29 @@
+[
+    {
+        "Student ID": "102",
+        "Name": "aishu",
+        "Age": "22",
+        "Gender": "female",
+        "Department": "EEE",
+        "Year": "2022",
+        "Phone": "78593794379"
+    },
+    {
+        "Student ID": "103",
+        "Name": "sushma",
+        "Age": "22",
+        "Gender": "female",
+        "Department": "CSE",
+        "Year": "2022",
+        "Phone": "7597878784"
+    },
+    {
+        "Student ID": "104",
+        "Name": "anjali",
+        "Age": "23",
+        "Gender": "female",
+        "Department": "Civil",
+        "Year": "2023",
+        "Phone": "8749837979"
+    }
+]

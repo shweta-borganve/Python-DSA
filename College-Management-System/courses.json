@@ -1,0 +1,14 @@
+[
+    {
+        "Course ID": "101",
+        "Course Name": "embedded",
+        "Department": "EEE",
+        "Credits": "10"
+    },
+    {
+        "Course ID": "102",
+        "Course Name": "java",
+        "Department": "CSE",
+        "Credits": "10"
+    }
+]
