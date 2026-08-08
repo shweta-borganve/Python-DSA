@@ -1,4 +1,4 @@
-# 📝 To-Do LIST MANAGER 
+# 📝 TO-DO LIST MANAGER
 
 A **Python-based To-Do List Manager** that helps users efficiently organize and manage their daily tasks. The application provides a secure login system, supports CRUD (Create, Read, Update, Delete) operations, stores data persistently using JSON, and offers an easy-to-use menu-driven interface.
 
