@@ -45,4 +45,4 @@ def save_data(filename, data):
         logger.info(f"Data saved successfully to {filename}")
 
     except Exception as e:  # noqa: BLE001
-        logger.error(f"Error saving {filename}: {e}") 
+        logger.error(f"Error saving {filename}: {e}")

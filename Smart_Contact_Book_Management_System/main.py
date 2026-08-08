@@ -1,5 +1,7 @@
+import sys
+
 username = input("Enter Username: ")
-password = input("Enter password: ") 
+password = input("Enter password: ")
 
 if username == "json" and password == "json123":
     print("Login Successfull")
@@ -7,24 +9,21 @@ if username == "json" and password == "json123":
     while True:
         print("=" * 50)
         print("CONTACT BOOK MANAGEMENT SYSTEM")
-        print("=" * 50) 
-        break 
+        print("=" * 50)
+        break
 else:
-    print("Invalid Usrename or Password") 
-    exit() 
+    print("Invalid Usrename or Password")
+    sys.exit()
 
 import json
+
 
 def add_contacts():
     name = input("Enter name: ")
     phone = input("Enter phone number: ")
     email = input("Enter email: ")
 
-    contact = {
-        "name": name,
-        "phone": phone,
-        "email": email
-    }
+    contact = {"name": name, "phone": phone, "email": email}
 
     try:
         with open("contacts.json", "r") as f:
@@ -58,6 +57,7 @@ def view_contact():
     except FileNotFoundError:
         print("No contacts available")
 
+
 def search_contact():
     try:
         with open("contacts.json", "r") as f:
@@ -80,13 +80,14 @@ def search_contact():
     except FileNotFoundError:
         print("No contacts available")
 
+
 def update_contact():
     try:
-         with open("contacts.json", "r") as f:
+        with open("contacts.json", "r") as f:
             contacts = json.load(f)
             search_name = input("Enter contact name to update: ")
             found = False
-    
+
             for contact in contacts:
                 if contact["name"].lower() == search_name.lower():
                     print("\nContact found")
@@ -98,12 +99,13 @@ def update_contact():
                     break
             if found:
                 with open("contacts.json", "w") as f:
-                    json.dump(contacts, f, indent = 4)
+                    json.dump(contacts, f, indent=4)
                     print("Contact updated Successfully!!")
             else:
                 print("Contact not found.")
     except FileNotFoundError:
-            print("No contacts available") 
+        print("No contacts available")
+
 
 def Delete_contact():
     try:
@@ -119,12 +121,13 @@ def Delete_contact():
                     break
             if found:
                 with open("contacts.json", "w") as f:
-                    json.dump(contacts, f, indent = 4) 
-                print("Contact deleted Successfully!!") 
+                    json.dump(contacts, f, indent=4)
+                print("Contact deleted Successfully!!")
             else:
-                print("Contact not found.") 
+                print("Contact not found.")
     except FileNotFoundError:
-        print("No contacts available.") 
+        print("No contacts available.")
+
 
 while True:
     print("\n===== CONTACT BOOK =====")
@@ -151,14 +154,14 @@ while True:
             update_contact()
 
         elif choice == 5:
-            Delete_contact() 
+            Delete_contact()
 
         elif choice == 6:
-            print("Exiting... Thank you for using this Application") 
+            print("Exiting... Thank you for using this Application")
             break
 
         else:
             print("Feature not implemented yet")
 
     except ValueError:
-        print("Invalid Input! Please enter a valid number(1-6).")  
+        print("Invalid Input! Please enter a valid number(1-6).")

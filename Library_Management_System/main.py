@@ -1,3 +1,6 @@
+import sys
+
+
 def login():
     username = input("Enter Username: ")
     password = input("Enter Password: ")
@@ -7,9 +10,12 @@ def login():
     else:
         print("\nInvalid username or password\n")
         return False
+
+
 if not login():
-    exit() 
+    sys.exit()
 print("Welcome to Library Management System")
+
 
 def add_book():
     book_id = input("Enter a Book ID: ")
@@ -22,6 +28,7 @@ def add_book():
         f.write(f"{book_id},{book_name},{author},{category},{quantity}\n")
         print("\nBook added Successfully!")
 
+
 def view_books():
     try:
         with open("books.txt", "r") as f:
@@ -33,7 +40,8 @@ def view_books():
                 print("\n======= BOOK LIST==========")
                 print(data)
     except FileNotFoundError:
-        print("\nbooks.txt file not found!\n") 
+        print("\nbooks.txt file not found!\n")
+
 
 def search_book():
     search_id = input("Enter a book id to search: ")
@@ -41,7 +49,7 @@ def search_book():
 
     with open("books.txt", "r") as f:
         for line in f:
-            data = line.strip().split(",") 
+            data = line.strip().split(",")
             if data[0] == search_id:
                 print("\nBook Found!")
                 print(f"book id : {data[0]}")
@@ -53,6 +61,7 @@ def search_book():
                 break
     if not found:
         print("\nBook not found!")
+
 
 def issue_book():
     book_id = input("Enter Book ID to issue: ")
@@ -74,10 +83,10 @@ def issue_book():
             updated_books.append(",".join(data))
     if found:
         with open("books.txt", "w") as f:
-            for book in updated_books:
-                f.write(book + "\n")
+            f.writelines(book + "\n" for book in updated_books)
     else:
         print("\nBook not found!")
+
 
 def return_book():
     book_id = input("Enter Book ID to return: ")
@@ -93,10 +102,10 @@ def return_book():
             updated_books.append(",".join(data))
     if found:
         with open("books.txt", "w") as f:
-            for book in updated_books:
-                f.write(book + "\n")
+            f.writelines(book + "\n" for book in updated_books)
     else:
-        print("\nBook not found!") 
+        print("\nBook not found!")
+
 
 def update_book():
     book_id = input("Enter Book ID to update: ")
@@ -122,10 +131,10 @@ def update_book():
 
     if found:
         with open("books.txt", "w") as f:
-            for book in updated_books:
-                f.write(book + "\n")
+            f.writelines(book + "\n" for book in updated_books)
     else:
-        print("\nBook not found!") 
+        print("\nBook not found!")
+
 
 def delete_book():
     book_id = input("Enter your Book ID: ")
@@ -143,10 +152,10 @@ def delete_book():
             updated_books.append(",".join(data))
     if found:
         with open("books.txt", "w") as f:
-            for book in updated_books:
-                f.write(book + "\n")
+            f.writelines(book + "\n" for book in updated_books)
     else:
-        print("\nBook not found!") 
+        print("\nBook not found!")
+
 
 def count_book():
     count = 0
@@ -155,8 +164,9 @@ def count_book():
         for line in f:
             if line.strip():
                 count = count + 1
-    print(f"\nTotal Books: {count}") 
-        
+    print(f"\nTotal Books: {count}")
+
+
 while True:
     print("-" * 50)
     print("LIBRARY MANAGEMENT SYSTEM")
@@ -166,7 +176,7 @@ while True:
     print("2. View Books")
     print("3. Search Book")
     print("4. Issue Book")
-    print("5. Return Book")   
+    print("5. Return Book")
     print("6. Update Book")
     print("7. Delete Book")
     print("8. Count Books")
@@ -185,10 +195,10 @@ while True:
         view_books()
 
     elif choice == 3:
-        search_book() 
+        search_book()
 
     elif choice == 4:
-        issue_book() 
+        issue_book()
 
     elif choice == 5:
         return_book()
@@ -200,10 +210,10 @@ while True:
         delete_book()
 
     elif choice == 8:
-        count_book() 
+        count_book()
 
     elif choice == 9:
         print("\nThank you for using Library Management System!")
         break
     else:
-        print("\nThis feature will be implemented next.\n") 
+        print("\nThis feature will be implemented next.\n")

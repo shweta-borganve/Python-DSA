@@ -44,7 +44,7 @@ def add_products():
         "id": product_id,
         "name": product_name,
         "price": product_price,
-        "stock": product_stock
+        "stock": product_stock,
     }
 
     products.append(product)
@@ -76,22 +76,23 @@ def view_products():
             print(f"Stock: {product['stock']}")
             print("------------------------")
 
+
 def search_product():
     if os.path.exists("products.json"):
         try:
             with open("products.json", "r") as f:
-                products = json.load(f) 
+                products = json.load(f)
         except json.JSONDecodeError:
-            products = [] 
+            products = []
     else:
         products = []
     if len(products) == 0:
         print("No products found")
         return
-    search = input("Enter product name to search: ").lower() 
+    search = input("Enter product name to search: ").lower()
     found = False
     for product in products:
-        if product['name'].lower() == search:
+        if product["name"].lower() == search:
             print("\nProduct found")
             print(f"ID: {product['id']}")
             print(f"Name: {product['name']}")
@@ -100,7 +101,8 @@ def search_product():
             found = True
             break
     if not found:
-        print("Product not found") 
+        print("Product not found")
+
 
 def add_to_cart():
     if os.path.exists("products.json"):
@@ -135,7 +137,7 @@ def add_to_cart():
                 "id": product["id"],
                 "name": product["name"],
                 "price": product["price"],
-                "quantity": quantity
+                "quantity": quantity,
             }
 
             cart.append(cart_item)
@@ -151,7 +153,8 @@ def add_to_cart():
             print("Product Added to Cart Successfully!")
             return
 
-    print("Product Not Found") 
+    print("Product Not Found")
+
 
 def view_cart():
     if os.path.exists("cart.json"):
@@ -181,7 +184,8 @@ def view_cart():
             print(f"Amount: ₹{amount}")
             print("--------------------------")
 
-        print(f"Total Bill: ₹{total}") 
+        print(f"Total Bill: ₹{total}")
+
 
 def update_cart():
     if os.path.exists("cart.json"):
@@ -213,7 +217,8 @@ def update_cart():
             json.dump(cart, f, indent=4)
         print("Cart Updated Successfully!")
     else:
-        print("Product Not Found in Cart") 
+        print("Product Not Found in Cart")
+
 
 def remove_from_cart():
     if os.path.exists("cart.json"):
@@ -244,7 +249,8 @@ def remove_from_cart():
             json.dump(cart, f, indent=4)
         print("Product Removed from Cart Successfully!")
     else:
-        print("Product Not Found in Cart") 
+        print("Product Not Found in Cart")
+
 
 def checkout():
     if os.path.exists("cart.json"):
@@ -285,7 +291,8 @@ def checkout():
         print("Checkout Successful!")
         print("Thank you for shopping with us.")
     else:
-        print("Checkout Cancelled.") 
+        print("Checkout Cancelled.")
+
 
 def shopping_menu():
     while True:
@@ -313,22 +320,22 @@ def shopping_menu():
             view_products()
 
         elif choice == 3:
-            search_product() 
+            search_product()
 
         elif choice == 4:
-            add_to_cart() 
+            add_to_cart()
 
         elif choice == 5:
-            view_cart() 
+            view_cart()
 
         elif choice == 6:
-            update_cart() 
+            update_cart()
 
         elif choice == 7:
-            remove_from_cart() 
+            remove_from_cart()
 
         elif choice == 8:
-            checkout() 
+            checkout()
 
         elif choice == 9:
             print("Logged Out Successfully.")
@@ -358,4 +365,4 @@ while True:
         break
 
     else:
-        print("Invalid Choice.") 
+        print("Invalid Choice.")

@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 
 from course import course_management
 from enrollment import enrollment_management
@@ -9,7 +9,7 @@ from login import login
 from reports import reports
 from student import student_management
 
-logger.info("College Management System Started") 
+logger.info("College Management System Started")
 
 # Check if running in GitHub Actions or automated environment
 is_ci = os.getenv("CI") == "true"
@@ -85,4 +85,4 @@ while True:
 
     else:
         logger.warning(f"Invalid main menu option selected: {choice}")
-        print("Invalid choice") 
+        print("Invalid choice")

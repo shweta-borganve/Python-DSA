@@ -1,10 +1,12 @@
 import json
 import os
+import sys
 
 FILE_NAME = "accounts.json"
 if not os.path.exists(FILE_NAME):
     with open(FILE_NAME, "w") as f:
         json.dump([], f)
+
 
 def login():
     username = input("Enter username: ")
@@ -15,12 +17,14 @@ def login():
     else:
         print("\nInvalid Username or Password")
         return False
-    
+
+
 if login():
     print("\nWelcome to Bank Management System")
 else:
     print("\nPlease enter correct Username or Password")
-    exit() 
+    sys.exit()
+
 
 def create_account():
     with open(FILE_NAME, "r") as f:
@@ -41,17 +45,18 @@ def create_account():
         print("Invalid Balance!")
         return
     new_account = {
-            "account_no" : account_no,
-            "name" : name,
-            "phone" : phone,
-            "account_type" : account_type,
-            "balance" : balance,
-            "transactions" : []  
-    } 
+        "account_no": account_no,
+        "name": name,
+        "phone": phone,
+        "account_type": account_type,
+        "balance": balance,
+        "transactions": [],
+    }
     accounts.append(new_account)
     with open(FILE_NAME, "w") as f:
         json.dump(accounts, f, indent=4)
     print("Account Created Successfully!")
+
 
 def view_account():
     with open(FILE_NAME, "r") as f:
@@ -65,11 +70,12 @@ def view_account():
 
     for account in accounts:
         print(f"Account Number : {account['account_no']}")
-        print(f"Name : {account['name']}") 
-        print(f"Phone : {account['phone']}") 
+        print(f"Name : {account['name']}")
+        print(f"Phone : {account['phone']}")
         print(f"Account Type : {account['account_type']}")
-        print(f"Balance : {account['balance']}") 
+        print(f"Balance : {account['balance']}")
         print("-" * 20)
+
 
 def search_account():
     with open(FILE_NAME, "r") as f:
@@ -82,11 +88,12 @@ def search_account():
             print(f"Account Number : {account['account_no']}")
             print(f"Name : {account['name']}")
             print(f"Phone : {account['phone']}")
-            print(f"Account Type : {account['account_type']}") 
-            print(f"Balance : {account['balance']}") 
-            print("-" * 20) 
+            print(f"Account Type : {account['account_type']}")
+            print(f"Balance : {account['balance']}")
+            print("-" * 20)
             return
-    print("Account not found!") 
+    print("Account not found!")
+
 
 def deposit_money():
     with open(FILE_NAME, "r") as f:
@@ -102,15 +109,16 @@ def deposit_money():
             if amount <= 0:
                 print("Amount must be greater than zero!")
                 return
-            account["balance"] += amount 
+            account["balance"] += amount
             account["transactions"].append(f"Deposited{amount}")
             with open(FILE_NAME, "w") as f:
-                json.dump(accounts, f, indent=4) 
+                json.dump(accounts, f, indent=4)
             print("Amount Deposited Successfully!")
-            print("Updated Balance:", account['balance'])
+            print("Updated Balance:", account["balance"])
             return
-        
+
     print("Account not found!")
+
 
 def withdraw_money():
     with open(FILE_NAME, "r") as f:
@@ -147,6 +155,7 @@ def withdraw_money():
 
     print("Account Not Found!")
 
+
 def transfer_money():
     with open(FILE_NAME, "r") as f:
         accounts = json.load(f)
@@ -171,11 +180,11 @@ def transfer_money():
     except ValueError:
         print("Invalid Amount!")
         return
-    
+
     if amount <= 0:
         print("Amount must be greater than zero!")
         return
-    
+
     if sender["balance"] < amount:
         print("Insufficient Balance!")
         return
@@ -189,7 +198,8 @@ def transfer_money():
         json.dump(accounts, f, indent=4)
     print("Money Transferred Successfully!")
     print(f"Sender Balance: {sender['balance']}")
-    print(f"Receiver Balance: {receiver['balance']}") 
+    print(f"Receiver Balance: {receiver['balance']}")
+
 
 def update_account():
     with open(FILE_NAME, "r") as f:
@@ -207,19 +217,21 @@ def update_account():
             return
     print("Account Not Found!")
 
+
 def delete_account():
     with open(FILE_NAME, "r") as f:
         accounts = json.load(f)
     account_no = input("Enter Account Number to delete: ")
     for account in accounts:
         if account["account_no"] == account_no:
-            accounts.remove(account) 
+            accounts.remove(account)
             with open(FILE_NAME, "w") as f:
                 json.dump(accounts, f, indent=4)
             print("Account Deleted Successfully!")
             return
-        
+
     print("Account not Found!")
+
 
 def check_balance():
     with open(FILE_NAME, "r") as f:
@@ -227,14 +239,15 @@ def check_balance():
     account_no = input("Enter Account Number: ")
     for account in accounts:
         if account["account_no"] == account_no:
-            print("\nAccount found successfully!") 
+            print("\nAccount found successfully!")
             print("-" * 20)
             print(f"Account Number : {account['account_no']}")
             print(f"Account holder: {account['name']}")
-            print(f"Current Balance: {account['balance']}")  
+            print(f"Current Balance: {account['balance']}")
             print("-" * 20)
             return
-    print("Account not found!") 
+    print("Account not found!")
+
 
 def transaction_history():
     with open(FILE_NAME, "r") as f:
@@ -258,7 +271,8 @@ def transaction_history():
             return
 
     print("Account Not Found!")
-    
+
+
 while True:
     print("-" * 20)
     print("BANK MANAGEMENT SYSTEM")
@@ -274,7 +288,7 @@ while True:
     print("9. Check Balane")
     print("10. Transaction History")
     print("11. Exit")
-    print("-" * 20)  
+    print("-" * 20)
 
     try:
         choice = int(input("Enter your choice: "))
@@ -283,39 +297,39 @@ while True:
         continue
 
     if choice == 1:
-        create_account() 
+        create_account()
 
     elif choice == 2:
-        view_account() 
+        view_account()
 
     elif choice == 3:
-        search_account() 
+        search_account()
 
-    elif choice == 4: 
+    elif choice == 4:
         deposit_money()
 
     elif choice == 5:
         withdraw_money()
 
     elif choice == 6:
-        transfer_money() 
+        transfer_money()
 
     elif choice == 7:
         update_account()
 
     elif choice == 8:
-        delete_account() 
+        delete_account()
 
     elif choice == 9:
         check_balance()
 
     elif choice == 10:
-        transaction_history()   
+        transaction_history()
 
     elif choice == 11:
         print("Exiting....")
         print("\nThank you for using this application\n")
-        break 
+        break
 
     else:
-        print("Invalid choice") 
+        print("Invalid choice")

@@ -1,14 +1,16 @@
 import json
 import os
+import sys
 
 if os.path.exists("task.json"):
     try:
         with open("task.json", "r") as file:
-            task = json.load(file) 
+            task = json.load(file)
     except json.JSONDecodeError:
         task = []
 else:
-    task = [] 
+    task = []
+
 
 def login():
     username = input("Enter Username: ")
@@ -18,15 +20,17 @@ def login():
         return True
     else:
         print("Invalid username or password. Please try again.")
-        return False 
+        return False
+
 
 if login():
     print("\nWelcome to the To-Do List Manager!\n")
 else:
     print("Access denied. Exiting the system.")
-    exit() 
+    sys.exit()
 
-def add_task(): 
+
+def add_task():
     print("-" * 20)
     print("\nAdd Task Details: \n")
     print("-" * 20)
@@ -48,9 +52,10 @@ def add_task():
     with open("task.json", "w") as file:
         json.dump(task, file, indent=4)
 
-    print("\nTask details added successfully!\n") 
+    print("\nTask details added successfully!\n")
 
-def view_tasks(): 
+
+def view_tasks():
     if not task:
         print("\nNo tasks found.\n")
         return
@@ -64,9 +69,10 @@ def view_tasks():
         print(f"Description: {task_details['description']}")
         print(f"Due Date: {task_details['due_date']}")
         print(f"Status: {task_details['status']}")
-        print("-" * 20) 
+        print("-" * 20)
 
-def update_task(): 
+
+def update_task():
     task_id = input("Enter Task ID to update: ")
     for task_details in task:
         if task_details["task_id"] == task_id:
@@ -75,7 +81,9 @@ def update_task():
             task_details["title"] = input("Enter new Task Title: ")
             task_details["description"] = input("Enter new Task Description: ")
             task_details["due_date"] = input("Enter new Due Date (YYYY-MM-DD): ")
-            task_details["status"] = input("Enter new Task Status (Pending/Completed): ")
+            task_details["status"] = input(
+                "Enter new Task Status (Pending/Completed): "
+            )
 
             with open("task.json", "w") as file:
                 json.dump(task, file, indent=4)
@@ -83,9 +91,10 @@ def update_task():
             print("\nTask details updated successfully!\n")
             return
 
-    print("\nTask ID not found. Please try again.\n") 
+    print("\nTask ID not found. Please try again.\n")
 
-def task_completed(): 
+
+def task_completed():
     task_id = input("Enter Task ID to mark as completed: ")
     for task_details in task:
         if task_details["task_id"] == task_id:
@@ -97,9 +106,10 @@ def task_completed():
             print("\nTask marked as completed successfully!\n")
             return
 
-    print("\nTask ID not found. Please try again.\n") 
+    print("\nTask ID not found. Please try again.\n")
 
-def delete_task(): 
+
+def delete_task():
     task_id = input("Enter Task ID to delete: ")
     for task_details in task:
         if task_details["task_id"] == task_id:
@@ -111,14 +121,18 @@ def delete_task():
             print("\nTask deleted successfully!\n")
             return
 
-    print("\nTask ID not found. Please try again.\n") 
+    print("\nTask ID not found. Please try again.\n")
 
-def search_task(): 
+
+def search_task():
     search_term = input("Enter Task Title or Description to search: ")
     found_tasks = []
 
     for task_details in task:
-        if search_term.lower() in task_details["title"].lower() or search_term.lower() in task_details["description"].lower():
+        if (
+            search_term.lower() in task_details["title"].lower()
+            or search_term.lower() in task_details["description"].lower()
+        ):
             found_tasks.append(task_details)
 
     if not found_tasks:
@@ -134,7 +148,7 @@ def search_task():
         print(f"Description: {task_details['description']}")
         print(f"Due Date: {task_details['due_date']}")
         print(f"Status: {task_details['status']}")
-        print("-" * 20) 
+        print("-" * 20)
 
 
 while True:
@@ -143,9 +157,8 @@ while True:
     print("3. Update Task")
     print("4. Mark Task as Completed")
     print("5. Delete Task")
-    print("6. Search Task") 
+    print("6. Search Task")
     print("7. Exit")
-
 
     try:
         choice = int(input("Enter your choice (1-7): "))
@@ -153,28 +166,28 @@ while True:
         print("Invalid input. Please enter a number between 1 and 7.")
         continue
 
-    if choice == 1: 
-        add_task() 
+    if choice == 1:
+        add_task()
 
     elif choice == 2:
-        view_tasks() 
+        view_tasks()
 
-    elif choice == 3: 
-        update_task() 
+    elif choice == 3:
+        update_task()
 
     elif choice == 4:
-        task_completed() 
+        task_completed()
 
-    elif choice == 5: 
-        delete_task() 
+    elif choice == 5:
+        delete_task()
 
-    elif choice == 6: 
-        search_task() 
+    elif choice == 6:
+        search_task()
 
     elif choice == 7:
         print("Exiting....")
-        print("Thank you for using the To-Do List Manager!\n")  
+        print("Thank you for using the To-Do List Manager!\n")
         break
 
     else:
-        print("Invalid choice. Please try again.\n") 
+        print("Invalid choice. Please try again.\n")

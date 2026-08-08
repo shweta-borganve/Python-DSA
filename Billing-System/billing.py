@@ -74,10 +74,10 @@ def generate_bill():
 
     bill = {
         "bill_id": len(bills) + 1,
-        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"), 
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
         "items": items,
         "total": total,
-    } 
+    }
 
     bills.append(bill)
 

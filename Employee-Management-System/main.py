@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 FILE_NAME = "employees.json"
 
@@ -37,7 +38,7 @@ def add_employee():
             "Department": input("Enter Employee Department: "),
             "Designation": input("Enter Employee Designation: "),
             "Salary": float(input("Enter Employee Salary: ")),
-            "Phone": input("Enter Employee Phone Number: ")
+            "Phone": input("Enter Employee Phone Number: "),
         }
 
         employees.append(employee)
@@ -47,8 +48,9 @@ def add_employee():
 
         print("\nEmployee Added Successfully!\n")
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print("\nError:", e)
+
 
 def view_employee():
     try:
@@ -72,7 +74,8 @@ def view_employee():
     except FileNotFoundError:
         print("\nEmployee file not found!\n")
     except json.JSONDecodeError:
-        print("\nEmployee file is empty or corrupted!\n") 
+        print("\nEmployee file is empty or corrupted!\n")
+
 
 def search_employee():
     try:
@@ -86,7 +89,7 @@ def search_employee():
                 print("-" * 20)
                 print("Employee ID :", employee["Employee ID"])
                 print("Name :", employee["Name"])
-                print("Age :", employee["Age"]) 
+                print("Age :", employee["Age"])
                 print("Gender :", employee["Gender"])
                 print("Department :", employee["Department"])
                 print("Designation :", employee["Designation"])
@@ -102,6 +105,7 @@ def search_employee():
     except json.JSONDecodeError:
         print("\nEmployee file is empty or corrupted!\n")
 
+
 def update_employee():
     try:
         with open(FILE_NAME, "r") as f:
@@ -112,7 +116,7 @@ def update_employee():
         for employee in employees:
             if employee["Employee ID"] == employee_id:
                 print("\nEnter new Employee Details\n")
-                employee["Name"] = input("Enter Employee Name: ") 
+                employee["Name"] = input("Enter Employee Name: ")
                 employee["Age"] = int(input("Enter Employee Age: "))
                 employee["Gender"] = input("Enter Employee Gender: ")
                 employee["Department"] = input("Enter Employee Department: ")
@@ -134,6 +138,7 @@ def update_employee():
         print("Employee file not found!")
     except json.JSONDecodeError:
         print("Employee file is not found or corrupted!")
+
 
 def delete_employee():
     try:
@@ -158,12 +163,13 @@ def delete_employee():
     except json.JSONDecodeError:
         print("\n Employee file is empty or corrupted!\n")
 
+
 if not login():
-    exit()
+    sys.exit()
 
 while True:
     print("=" * 50)
-    print("      EMPLOYEE MANAGEMENT SYSTEM")
+    print("        EMPLOYEE MANAGEMENT SYSTEM")
     print("=" * 50)
     print("1. Add Employee")
     print("2. View Employee")

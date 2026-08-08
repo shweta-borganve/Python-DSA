@@ -1,8 +1,8 @@
 import json
-import os
-from datetime import datetime
+from datetime import datetime, timezone
 
 FILE_NAME = "inventory.json"
+
 
 def login():
     username = input("Enter Username: ")
@@ -36,13 +36,14 @@ def add_product():
         "Price": float(input("Enter Product Price: ")),
         "Quantity": int(input("Enter Product Quantity: ")),
         "Supplier": input("Enter Supplier Name: "),
-        "Date Added": datetime.now().strftime("%d-%m-%Y")
+        "Date Added": datetime.now(timezone.utc).strftime("%d-%m-%Y"),
     }
 
     products.append(product)
     save_data(products)
 
     print("\nProduct Added Successfully!\n")
+
 
 def view_product():
     products = load_data()
@@ -60,6 +61,7 @@ def view_product():
         print("Supplier: ", product["Supplier"])
         print("Date Added: ", product["Date Added"])
         print("-" * 50)
+
 
 def search_product():
     products = load_data()
@@ -81,7 +83,8 @@ def search_product():
             found = True
             break
         if not found:
-            print("\nProduct not found!") 
+            print("\nProduct not found!")
+
 
 def update_product():
     products = load_data()
@@ -95,11 +98,12 @@ def update_product():
             product["Quantity"] = input("Enter product Quantity: ")
             product["Supplier"] = input("Enter Supplier Name: ")
             save_data(products)
-            print("\nProduct Updated Successfully!") 
+            print("\nProduct Updated Successfully!")
             found = True
             break
         if not found:
-            print("\nProduct Not Found!") 
+            print("\nProduct Not Found!")
+
 
 def delete_contact():
     products = load_data()
@@ -108,12 +112,13 @@ def delete_contact():
     for product in products:
         if product["Product ID"] == product_id:
             products.remove(product)
-            save_data(products) 
+            save_data(products)
             print("\nProduct deleted Successfully!")
             found = True
             break
         if not found:
-            print("\nProduct not found!") 
+            print("\nProduct not found!")
+
 
 def stock_in():
     products = load_data()
@@ -131,9 +136,10 @@ def stock_in():
         if not found:
             print("\nProduct not Found!")
 
+
 def stock_out():
     products = load_data()
-    product_id = input("Enter product ID: ") 
+    product_id = input("Enter product ID: ")
     found = False
     for product in products:
         if product["Product ID"] == product_id:
@@ -148,7 +154,8 @@ def stock_out():
                 found = True
                 break
     if not found:
-        print("\nProduct not Found!") 
+        print("\nProduct not Found!")
+
 
 def low_stock_alert():
     products = load_data()
@@ -161,7 +168,8 @@ def low_stock_alert():
             print("Quantity: ", product["Quantity"])
             found = True
         if not found:
-            print("No low stock products found!") 
+            print("No low stock products found!")
+
 
 def Inventory_summary():
     products = load_data()
@@ -180,13 +188,14 @@ def Inventory_summary():
         print("Total Quantity: ", total_quantity)
         print("Total Value: ", total_value)
 
+
 # -------------------- Main Program --------------------
 
 if login():
 
     while True:
         print("\n" + "=" * 50)
-        print("      INVENTORY MANAGEMENT SYSTEM")
+        print("       INVENTORY MANAGEMENT SYSTEM")
         print("=" * 50)
         print("1. Add Product")
         print("2. View Product")
@@ -209,28 +218,28 @@ if login():
             add_product()
 
         elif choice == 2:
-            view_product() 
+            view_product()
 
         elif choice == 3:
-            search_product() 
+            search_product()
 
         elif choice == 4:
-            update_product() 
+            update_product()
 
         elif choice == 5:
-            delete_contact() 
+            delete_contact()
 
         elif choice == 6:
-            stock_in() 
+            stock_in()
 
         elif choice == 7:
-            stock_out() 
+            stock_out()
 
         elif choice == 8:
-            low_stock_alert() 
+            low_stock_alert()
 
         elif choice == 9:
-            Inventory_summary() 
+            Inventory_summary()
 
         elif choice == 10:
             print("\nThank you for using Inventory Management System.")

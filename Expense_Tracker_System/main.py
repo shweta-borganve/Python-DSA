@@ -9,6 +9,7 @@ def login():
         print("Invalid Username or Password")
         return False
 
+
 def menu():
     print("\n" + "-" * 50)
     print("         EXPENSE TRACKER SYSTEM")
@@ -29,6 +30,7 @@ def menu():
         except ValueError:
             print("Please enter a valid number.")
 
+
 def add_expense():
     print("\nADD EXPENSE")
     print("-" * 30)
@@ -42,16 +44,17 @@ def add_expense():
         with open("expenses.txt", "a") as f:
             f.write(f"{date}, {category}, {amount}, {description}\n")
 
-        print("\nExpense Added Successfully!") 
+        print("\nExpense Added Successfully!")
     except ValueError:
         print("Amount must be a number.")
+
 
 def view_expense():
     print("\nVIEW EXPENSE")
 
     try:
         with open("expenses.txt", "r") as f:
-            expenses = f.readlines() 
+            expenses = f.readlines()
         if len(expenses) == 0:
             print("No expenses available")
         else:
@@ -65,7 +68,8 @@ def view_expense():
                 print("----------------------")
 
     except FileNotFoundError:
-        print("No Expenses available") 
+        print("No Expenses available")
+
 
 def search_expense():
     print("\nSEARCH EXPENSE")
@@ -92,6 +96,7 @@ def search_expense():
 
     except FileNotFoundError:
         print("No expenses available")
+
 
 def update_expense():
     print("\nUPDATE  EXPENSE")
@@ -123,6 +128,7 @@ def update_expense():
     except ValueError:
         print("Amount must be a number.")
 
+
 def delete_expense():
     print("\nDELETE EXPENSE")
     print("-" * 30)
@@ -147,6 +153,7 @@ def delete_expense():
     except FileNotFoundError:
         print("No expenses found")
 
+
 def total_expense():
     print("\nTOTAL EXPENSE")
     print("-" * 30)
@@ -161,12 +168,13 @@ def total_expense():
         for expense in expenses:
             data = expense.strip().split(",")
             total += float(data[2].strip())
-        print(f"Total Expense: ₹ {total}") 
+        print(f"Total Expense: ₹ {total}")
 
     except FileNotFoundError:
         print("No expenses available.")
     except ValueError:
         print("Invalid amount found in the file.")
+
 
 def main():
 
@@ -201,4 +209,5 @@ def main():
             else:
                 print("Invalid Choice.")
 
-main() 
+
+main()
