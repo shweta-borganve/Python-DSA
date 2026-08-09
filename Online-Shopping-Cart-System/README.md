@@ -31,14 +31,22 @@ A Python-based **Online Shopping Cart System** that allows users to manage produ
 
 ## 📂 Project Structure
 
-```
+# Online Shopping Cart System
+
+A Python-based command-line shopping cart application built with Object-Oriented Programming (OOP) and data structures. It supports product browsing, cart management, user authentication, checkout, and bill generation.
+
+## 📂 Project Structure
+
+```text
 Online-Shopping-Cart-System/
-│── main.py
-│── users.json
-│── products.json
-│── cart.json
-│── README.md
-```
+├── .github/
+│   └── workflows/
+│       └── app.yml          # GitHub Actions CI pipeline configuration
+├── cart.json                # Storage for user shopping carts
+├── main.py                  # Main application entry point and logic
+├── products.json            # Product catalog database
+├── users.json               # User account credentials database
+└── README.md                # Project documentation 
 
 ---
 
