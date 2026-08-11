@@ -164,7 +164,7 @@ def view_doctor_details():
     print("-" * 20)
     print("\nView Doctor Details: \n")
     print("-" * 20)
-    doctors = {patient["doctor"] for patient in patients}
+    doctors = {patient["doctor"] for patient in patients} 
     if len(doctors) == 0:
         print("No doctor records found.")
     else:
@@ -272,35 +272,25 @@ if __name__ == "__main__":
 
         if choice == 1:
             add_patient()
-
         elif choice == 2:
             view_patient()
-
         elif choice == 3:
             search_patient()
-
         elif choice == 4:
             update_patient()
-
         elif choice == 5:
             delete_patient()
-
         elif choice == 6:
             view_doctor_details()
-
         elif choice == 7:
             book_appointment()
-
         elif choice == 8:
             view_appointment()
-
         elif choice == 9:
             discharge_patient()
-
         elif choice == 10:
             patient_count()
-
         elif choice == 11:
             print("Exiting....")
             print("\nThank you for using this application\n")
-            break 
+            break

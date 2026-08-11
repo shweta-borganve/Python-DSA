@@ -1,41 +1,26 @@
-# 🏥 HOSPITAL MANAGEMENT SYSTEM
+# 🏥 Hospital Management System
 
-A console-based **Hospital Management System** built with **Python** that streamlines patient record management and appointment scheduling. The application uses **JSON** for persistent data storage and provides a simple, menu-driven interface for performing essential hospital management operations.
-
----
-
-## 📖 Overview
-
-This project demonstrates the implementation of **CRUD (Create, Read, Update, Delete)** operations, file handling using JSON, user authentication, and modular programming concepts in Python.
-
-The system enables users to manage patient information efficiently while maintaining records across multiple program executions.
+A Python-based command-line Hospital Management System designed to efficiently manage patient records, doctor details, appointments, and credentials with persistent JSON storage and automated unit testing.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- 🔐 Secure Login Authentication
-- ➕ Add New Patient Records
-- 📄 View All Patient Details
-- 🔍 Search Patient by Patient ID
-- ✏️ Update Patient Information
-- 🗑️ Delete Patient Records
-- 👨‍⚕️ View Doctor Details
-- 📅 Book Patient Appointments
-- 📋 View Appointment Details
-- 🏥 Discharge Patients
-- 📊 Display Total Patient Count
-- 💾 Persistent Data Storage using JSON
+* **Secure Authentication**: Username and password login verification.
+* **Patient Management**: Add, view, search, update, discharge, and track total patient counts.
+* **Appointment Scheduling**: Book and view appointments mapped to specific patients.
+* **Doctor Directory**: View a distinct list of doctors managing patients.
+* **Data Persistence**: Automatically loads and saves data locally using `patients.json`.
+* **Automated CI/CD**: Integrated with GitHub Actions to run pytest automatically on every push and pull request.
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Python 3 | Application Development |
-| JSON | Data Storage |
-| OS Module | File Handling |
+* **Language**: Python 3.10+
+* **Testing Framework**: `pytest`
+* **Storage**: JSON
+* **CI/CD**: GitHub Actions
 
 ---
 
@@ -44,10 +29,15 @@ The system enables users to manage patient information efficiently while maintai
 ```text
 Hospital-Management-System/
 │
-├── main.py             # Main application
-├── patients.json       # Stores patient records
-└── README.md           # Project documentation
-```
+├── .github/
+│   └── workflows/
+│       └── main.yml        # GitHub Actions CI pipeline configuration
+├── test/
+│   └── test_main.py        # Pytest unit test suite
+├── main.py                 # Core application logic and CLI menu
+├── patients.json           # Local database (auto-generated)
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation
 
 ---
 
