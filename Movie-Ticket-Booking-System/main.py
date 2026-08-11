@@ -1,6 +1,7 @@
 import json
 import os
 
+# Initialize data stores
 if os.path.exists("users.json"):
     try:
         with open("users.json", "r") as f:
@@ -258,4 +259,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()
