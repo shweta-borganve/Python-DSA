@@ -171,86 +171,91 @@ def view_bookings(username):
         print(f"Movie: {booking['movie_title']} - Tickets: {booking['tickets']}")
 
 
-while True:
-    print("\n======= Movie Ticket Booking System =======")
-    print("1. Admin Login")
-    print("2. User Registration")
-    print("3. User Login")
-    print("4. Exit")
+def main():
+    while True:
+        print("\n======= Movie Ticket Booking System =======")
+        print("1. Admin Login")
+        print("2. User Registration")
+        print("3. User Login")
+        print("4. Exit")
 
-    try:
-        choice = int(input("Enter your choice (1-4): "))
-    except ValueError:
-        print("Invalid input. Please enter a number between 1 and 4.")
-        continue
+        try:
+            choice = int(input("Enter your choice (1-4): "))
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 4.")
+            continue
 
-    if choice == 1:
-        if admin_login():
-            while True:
-                print("\n--- Admin Menu ---")
-                print("1. Add Movie")
-                print("2. View Movies")
-                print("3. Update Movie")
-                print("4. View All Bookings")
-                print("5. Logout")
-                try:
-                    admin_choice = int(input("Enter your choice (1-5): "))
-                except ValueError:
-                    print("Invalid input.")
-                    continue
+        if choice == 1:
+            if admin_login():
+                while True:
+                    print("\n--- Admin Menu ---")
+                    print("1. Add Movie")
+                    print("2. View Movies")
+                    print("3. Update Movie")
+                    print("4. View All Bookings")
+                    print("5. Logout")
+                    try:
+                        admin_choice = int(input("Enter your choice (1-5): "))
+                    except ValueError:
+                        print("Invalid input.")
+                        continue
 
-                if admin_choice == 1:
-                    add_movie()
-                elif admin_choice == 2:
-                    view_movies()
-                elif admin_choice == 3:
-                    update_movie()
-                elif admin_choice == 4:
-                    print("\nAll Bookings:")
-                    if not bookings:
-                        print("No bookings found.")
+                    if admin_choice == 1:
+                        add_movie()
+                    elif admin_choice == 2:
+                        view_movies()
+                    elif admin_choice == 3:
+                        update_movie()
+                    elif admin_choice == 4:
+                        print("\nAll Bookings:")
+                        if not bookings:
+                            print("No bookings found.")
+                        else:
+                            for b in bookings:
+                                print(
+                                    f"User: {b['username']} | Movie: {b['movie_title']} | Tickets: {b['tickets']}"
+                                )
+                    elif admin_choice == 5:
+                        break
                     else:
-                        for b in bookings:
-                            print(
-                                f"User: {b['username']} | Movie: {b['movie_title']} | Tickets: {b['tickets']}"
-                            )
-                elif admin_choice == 5:
-                    break
-                else:
-                    print("Invalid choice.")
+                        print("Invalid choice.")
 
-    elif choice == 2:
-        register_user()
+        elif choice == 2:
+            register_user()
 
-    elif choice == 3:
-        logged_in_user = user_login()
-        if logged_in_user:
-            while True:
-                print(f"\n--- Welcome, {logged_in_user} ---")
-                print("1. View Movies")
-                print("2. Book Movie Ticket")
-                print("3. View My Bookings")
-                print("4. Logout")
-                try:
-                    user_choice = int(input("Enter your choice (1-4): "))
-                except ValueError:
-                    print("Invalid input.")
-                    continue
+        elif choice == 3:
+            logged_in_user = user_login()
+            if logged_in_user:
+                while True:
+                    print(f"\n--- Welcome, {logged_in_user} ---")
+                    print("1. View Movies")
+                    print("2. Book Movie Ticket")
+                    print("3. View My Bookings")
+                    print("4. Logout")
+                    try:
+                        user_choice = int(input("Enter your choice (1-4): "))
+                    except ValueError:
+                        print("Invalid input.")
+                        continue
 
-                if user_choice == 1:
-                    view_movies()
-                elif user_choice == 2:
-                    book_movie(logged_in_user)
-                elif user_choice == 3:
-                    view_bookings(logged_in_user)
-                elif user_choice == 4:
-                    break
-                else:
-                    print("Invalid choice.")
+                    if user_choice == 1:
+                        view_movies()
+                    elif user_choice == 2:
+                        book_movie(logged_in_user)
+                    elif user_choice == 3:
+                        view_bookings(logged_in_user)
+                    elif user_choice == 4:
+                        break
+                    else:
+                        print("Invalid choice.")
 
-    elif choice == 4:
-        print("Exiting the Movie Ticket Booking System!\n")
-        print("Thank you for using the Movie Ticket Booking System!\n")
-        break
-    else:
-        print("Invalid choice. Please enter a number between 1 and 4.")
+        elif choice == 4:
+            print("Exiting the Movie Ticket Booking System!\n")
+            print("Thank you for using the Movie Ticket Booking System!\n")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+
+
+if __name__ == "__main__":
+    main() 
