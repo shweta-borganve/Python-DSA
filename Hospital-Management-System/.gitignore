@@ -1,0 +1,7 @@
+# Python cache and virtual environment
+__pycache__/
+venv/
+.pytest_cache/
+
+# Local database file
+patients.json 

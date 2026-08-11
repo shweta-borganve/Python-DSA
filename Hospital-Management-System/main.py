@@ -23,13 +23,6 @@ def login():
         return False
 
 
-if login():
-    print("\nWelcome to the Hospital Management System!\n")
-else:
-    print("Access denied. Exiting the system.")
-    sys.exit()
-
-
 def add_patient():
     print("-" * 20)
     print("\nAdd Patient Details: \n")
@@ -248,59 +241,66 @@ def patient_count():
     print(f"Total number of patients: {count}")
 
 
-while True:
-    print("*" * 20)
-    print("\nHospital Management System Menu: \n")
-    print("*" * 20)
-    print("1. Add Patient")
-    print("2. View Patient")
-    print("3. Search Patient")
-    print("4. Update Patient Details")
-    print("5. Delete Patient Record ")
-    print("6. View Doctor Details")
-    print("7. Book Appointment")
-    print("8. View Appointment")
-    print("9. Discharge Patient")
-    print("10.Patient Count")
-    print("11. Exit\n")
+if __name__ == "__main__":
+    if login():
+        print("\nWelcome to the Hospital Management System!\n")
+    else:
+        print("Access denied. Exiting the system.")
+        sys.exit()
 
-    try:
-        choice = int(input("Enter your choice: "))
-    except ValueError:
-        print("Please Enter a valid Choice.")
-        continue
+    while True:
+        print("*" * 20)
+        print("\nHospital Management System Menu: \n")
+        print("*" * 20)
+        print("1. Add Patient")
+        print("2. View Patient")
+        print("3. Search Patient")
+        print("4. Update Patient Details")
+        print("5. Delete Patient Record ")
+        print("6. View Doctor Details")
+        print("7. Book Appointment")
+        print("8. View Appointment")
+        print("9. Discharge Patient")
+        print("10. Patient Count")
+        print("11. Exit\n")
 
-    if choice == 1:
-        add_patient()
+        try:
+            choice = int(input("Enter your choice: "))
+        except ValueError:
+            print("Please Enter a valid Choice.")
+            continue
 
-    elif choice == 2:
-        view_patient()
+        if choice == 1:
+            add_patient()
 
-    elif choice == 3:
-        search_patient()
+        elif choice == 2:
+            view_patient()
 
-    elif choice == 4:
-        update_patient()
+        elif choice == 3:
+            search_patient()
 
-    elif choice == 5:
-        delete_patient()
+        elif choice == 4:
+            update_patient()
 
-    elif choice == 6:
-        view_doctor_details()
+        elif choice == 5:
+            delete_patient()
 
-    elif choice == 7:
-        book_appointment()
+        elif choice == 6:
+            view_doctor_details()
 
-    elif choice == 8:
-        view_appointment()
+        elif choice == 7:
+            book_appointment()
 
-    elif choice == 9:
-        discharge_patient()
+        elif choice == 8:
+            view_appointment()
 
-    elif choice == 10:
-        patient_count()
+        elif choice == 9:
+            discharge_patient()
 
-    elif choice == 11:
-        print("Exiting....")
-        print("\nThank you for using this application\n")
-        break
+        elif choice == 10:
+            patient_count()
+
+        elif choice == 11:
+            print("Exiting....")
+            print("\nThank you for using this application\n")
+            break 
