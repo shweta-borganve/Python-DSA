@@ -37,16 +37,19 @@ A Python-based command-line shopping cart application built with Object-Oriented
 
 ## 📂 Project Structure
 
-```text
 Online-Shopping-Cart-System/
+│
 ├── .github/
 │   └── workflows/
-│       └── app.yml          # GitHub Actions CI pipeline configuration
-├── cart.json                # Storage for user shopping carts
-├── main.py                  # Main application entry point and logic
-├── products.json            # Product catalog database
-├── users.json               # User account credentials database
-└── README.md                # Project documentation 
+│       └── main.yml        # GitHub Actions CI workflow for testing & linting
+│
+├── .gitignore              # Files and directories ignored by Git
+├── main.py                 # Core application logic and entry point
+├── test_main.py            # Unit tests for application features
+├── products.json           # Product inventory database (JSON)
+├── cart.json               # Active shopping cart data (JSON)
+├── users.json              # User credentials database (JSON)
+└── README.md               # Project documentation 
 
 ---
 
