@@ -1,4 +1,5 @@
-from unittest.mock import patch, mock_open
+from unittest.mock import patch
+
 import main
 
 
@@ -20,9 +21,9 @@ def test_login_failure():
 )
 def test_add_product(mock_input, mock_save, mock_load):
     mock_load.return_value = []
-    
+
     main.add_product()
-    
+
     mock_save.assert_called_once()
     saved_data = mock_save.call_args[0][0]
     assert len(saved_data) == 1
@@ -56,4 +57,4 @@ def test_inventory_summary(mock_load):
 
     assert len(products) == 2
     assert total_quantity == 12
-    assert total_value == (1000.0 * 2) + (50.0 * 10) 
+    assert total_value == (1000.0 * 2) + (50.0 * 10)

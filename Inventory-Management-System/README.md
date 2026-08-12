@@ -1,6 +1,36 @@
 # 📦 INVENTORY MANAGEMENT SYSTEM
+# 📦 Inventory Management System
 
-A **Python-based Inventory Management System** that helps manage product inventory using **JSON file handling**. This console application allows users to add, view, search, update, and delete products while also managing stock levels and generating inventory summaries.
+A robust command-line Inventory Management System built in Python that allows admin users to manage products, track stock levels, and generate financial summaries with persistent JSON storage.
+
+---
+
+## ✨ Features
+
+* **Admin Authentication:** Secure login functionality to access the system.
+* **Product Management:** Add, view, search, update, and delete product records.
+* **Stock Operations:** Streamlined `Stock In` and `Stock Out` quantity tracking with automatic validation against negative or insufficient stock.
+* **Low Stock Alerts:** Automatically flags products with a quantity below the threshold.
+* **Inventory Summary:** Calculates total products, overall aggregate quantity, and total inventory financial value.
+* **Automated CI/CD:** Integrated with GitHub Actions to run unit tests automatically on every push and pull request.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Language:** Python 3.10+
+* **Testing:** `pytest`
+* **Linter:** `Ruff`
+* **Data Storage:** JSON
+
+---
+
+## 🚀 Getting Started Locally
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/shweta-borganve/Inventory-Management-System.git](https://github.com/shweta-borganve/Inventory-Management-System.git)
+cd Inventory-Management-System 
 
 ---
 
@@ -39,9 +69,16 @@ A **Python-based Inventory Management System** that helps manage product invento
 
 ```text
 Inventory-Management-System/
-│── main.py
-│── inventory.json
-└── README.md
+│
+├── .github/
+│   └── workflows/
+│       └── main.yml       # GitHub Actions CI workflow
+├── tests/
+│   └── test_main.py       # Unit tests for core functions
+├── .gitignore             # Git ignore file
+├── inventory.json         # Local data store (ignored by git)
+├── main.py                # Main application entry point
+└── README.md              # Project documentation 
 ```
 
 ---

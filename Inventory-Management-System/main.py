@@ -36,7 +36,7 @@ def add_product():
         "Price": float(input("Enter Product Price: ")),
         "Quantity": int(input("Enter Product Quantity: ")),
         "Supplier": input("Enter Supplier Name: "),
-        "Date Added": datetime.now(timezone.utc).strftime("%d-%m-%Y"),
+        "Date Added": datetime.now(timezone.utc).strftime("%d-%m-%Y"), 
     }
 
     products.append(product)
@@ -191,62 +191,63 @@ def Inventory_summary():
 
 # -------------------- Main Program --------------------
 
-if login():
+if __name__ == "__main__":
+    if login():
 
-    while True:
-        print("\n" + "=" * 50)
-        print("       INVENTORY MANAGEMENT SYSTEM")
-        print("=" * 50)
-        print("1. Add Product")
-        print("2. View Product")
-        print("3. Search Product")
-        print("4. Update Product")
-        print("5. Delete Product")
-        print("6. Stock In")
-        print("7. Stock Out")
-        print("8. Low Stock Alert")
-        print("9. Inventory Summary")
-        print("10. Exit")
+        while True:
+            print("\n" + "=" * 50)
+            print("       INVENTORY MANAGEMENT SYSTEM")
+            print("=" * 50)
+            print("1. Add Product")
+            print("2. View Product")
+            print("3. Search Product")
+            print("4. Update Product")
+            print("5. Delete Product")
+            print("6. Stock In")
+            print("7. Stock Out")
+            print("8. Low Stock Alert")
+            print("9. Inventory Summary")
+            print("10. Exit")
 
-        try:
-            choice = int(input("\nEnter your Choice: "))
-        except ValueError:
-            print("Please enter a valid number.")
-            continue
+            try:
+                choice = int(input("\nEnter your Choice: "))
+            except ValueError:
+                print("Please enter a valid number.")
+                continue
 
-        if choice == 1:
-            add_product()
+            if choice == 1:
+                add_product()
 
-        elif choice == 2:
-            view_product()
+            elif choice == 2:
+                view_product()
 
-        elif choice == 3:
-            search_product()
+            elif choice == 3:
+                search_product()
 
-        elif choice == 4:
-            update_product()
+            elif choice == 4:
+                update_product()
 
-        elif choice == 5:
-            delete_contact()
+            elif choice == 5:
+                delete_contact()
 
-        elif choice == 6:
-            stock_in()
+            elif choice == 6:
+                stock_in()
 
-        elif choice == 7:
-            stock_out()
+            elif choice == 7:
+                stock_out()
 
-        elif choice == 8:
-            low_stock_alert()
+            elif choice == 8:
+                low_stock_alert()
 
-        elif choice == 9:
-            Inventory_summary()
+            elif choice == 9:
+                Inventory_summary()
 
-        elif choice == 10:
-            print("\nThank you for using Inventory Management System.")
-            break
+            elif choice == 10:
+                print("\nThank you for using Inventory Management System.")
+                break
 
-        else:
-            print("Invalid Choice!")
+            else:
+                print("Invalid Choice!")
 
-else:
-    print("Access Denied.")
+    else:
+        print("Access Denied.")
