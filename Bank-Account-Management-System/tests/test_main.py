@@ -1,7 +1,14 @@
-import os
 import json
+import os
+import sys
+
 import pytest
+
+# Add project root directory to Python path so it can find main.py
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import main
+
 
 @pytest.fixture(autouse=True)
 def setup_teardown_file():
@@ -14,11 +21,12 @@ def setup_teardown_file():
     if os.path.exists(main.FILE_NAME):
         os.remove(main.FILE_NAME)
 
+
 def test_create_account(monkeypatch):
     """Test creating a new bank account."""
     # Simulate user inputs for: account_no, name, phone, account_type, balance
     inputs = iter(["101", "John Doe", "9876543210", "savings", "5000"])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    monkeypatch.setattr("builtins.input", lambda _: next(inputs))
 
     main.create_account()
 
@@ -31,23 +39,26 @@ def test_create_account(monkeypatch):
     assert accounts[0]["name"] == "John Doe"
     assert accounts[0]["balance"] == 5000.0
 
+
 def test_deposit_money(monkeypatch):
     """Test depositing money into an account."""
     # Pre-populate an account
-    initial_data = [{
-        "account_no": "102",
-        "name": "Jane Doe",
-        "phone": "1234567890",
-        "account_type": "savings",
-        "balance": 1000.0,
-        "transactions": []
-    }]
+    initial_data = [
+        {
+            "account_no": "102",
+            "name": "Jane Doe",
+            "phone": "1234567890",
+            "account_type": "savings",
+            "balance": 1000.0,
+            "transactions": [],
+        }
+    ]
     with open(main.FILE_NAME, "w") as f:
         json.dump(initial_data, f)
 
     # Simulate user inputs for: account_no, deposit amount
     inputs = iter(["102", "500"])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    monkeypatch.setattr("builtins.input", lambda _: next(inputs))
 
     main.deposit_money()
 
@@ -58,22 +69,25 @@ def test_deposit_money(monkeypatch):
     assert accounts[0]["balance"] == 1500.0
     assert "Deposited500.0" in accounts[0]["transactions"]
 
+
 def test_withdraw_money_insufficient(monkeypatch):
     """Test withdrawal failure due to insufficient balance."""
-    initial_data = [{
-        "account_no": "103",
-        "name": "Bob Smith",
-        "phone": "5555555555",
-        "account_type": "current",
-        "balance": 200.0,
-        "transactions": []
-    }]
+    initial_data = [
+        {
+            "account_no": "103",
+            "name": "Bob Smith",
+            "phone": "5555555555",
+            "account_type": "current",
+            "balance": 200.0,
+            "transactions": [],
+        }
+    ]
     with open(main.FILE_NAME, "w") as f:
         json.dump(initial_data, f)
 
     # Try to withdraw more than available balance
     inputs = iter(["103", "500"])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    monkeypatch.setattr("builtins.input", lambda _: next(inputs))
 
     # Should print "Insufficient Balance!" and return without changing balance
     main.withdraw_money()
@@ -81,4 +95,4 @@ def test_withdraw_money_insufficient(monkeypatch):
     with open(main.FILE_NAME, "r") as f:
         accounts = json.load(f)
 
-    assert accounts[0]["balance"] == 200.0 
+    assert accounts[0]["balance"] == 200.0

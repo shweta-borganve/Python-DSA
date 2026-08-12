@@ -19,13 +19,6 @@ def login():
         return False
 
 
-if login():
-    print("\nWelcome to Bank Management System")
-else:
-    print("\nPlease enter correct Username or Password")
-    sys.exit()
-
-
 def create_account():
     with open(FILE_NAME, "r") as f:
         accounts = json.load(f)
@@ -273,63 +266,74 @@ def transaction_history():
     print("Account Not Found!")
 
 
-while True:
-    print("-" * 20)
-    print("BANK MANAGEMENT SYSTEM")
-    print("-" * 20)
-    print("1. Create New Account")
-    print("2. View All Accounts")
-    print("3. Search Account")
-    print("4. Deposit Account")
-    print("5. Withdraw Money")
-    print("6. Transfer Money")
-    print("7. Update Account Details")
-    print("8. Delete Account")
-    print("9. Check Balane")
-    print("10. Transaction History")
-    print("11. Exit")
-    print("-" * 20)
-
-    try:
-        choice = int(input("Enter your choice: "))
-    except ValueError:
-        print("Please Enter a valid Choice.")
-        continue
-
-    if choice == 1:
-        create_account()
-
-    elif choice == 2:
-        view_account()
-
-    elif choice == 3:
-        search_account()
-
-    elif choice == 4:
-        deposit_money()
-
-    elif choice == 5:
-        withdraw_money()
-
-    elif choice == 6:
-        transfer_money()
-
-    elif choice == 7:
-        update_account()
-
-    elif choice == 8:
-        delete_account()
-
-    elif choice == 9:
-        check_balance()
-
-    elif choice == 10:
-        transaction_history()
-
-    elif choice == 11:
-        print("Exiting....")
-        print("\nThank you for using this application\n")
-        break
-
+def main_app():
+    if login():
+        print("\nWelcome to Bank Management System")
     else:
-        print("Invalid choice")
+        print("\nPlease enter correct Username or Password")
+        sys.exit()
+
+    while True:
+        print("-" * 20)
+        print("BANK MANAGEMENT SYSTEM")
+        print("-" * 20)
+        print("1. Create New Account")
+        print("2. View All Accounts")
+        print("3. Search Account")
+        print("4. Deposit Account")
+        print("5. Withdraw Money")
+        print("6. Transfer Money")
+        print("7. Update Account Details")
+        print("8. Delete Account")
+        print("9. Check Balance")
+        print("10. Transaction History")
+        print("11. Exit")
+        print("-" * 20)
+
+        try:
+            choice = int(input("Enter your choice: "))
+        except ValueError:
+            print("Please Enter a valid Choice.")
+            continue
+
+        if choice == 1:
+            create_account()
+
+        elif choice == 2:
+            view_account()
+
+        elif choice == 3:
+            search_account()
+
+        elif choice == 4:
+            deposit_money()
+
+        elif choice == 5:
+            withdraw_money()
+
+        elif choice == 6:
+            transfer_money()
+
+        elif choice == 7:
+            update_account()
+
+        elif choice == 8:
+            delete_account()
+
+        elif choice == 9:
+            check_balance()
+
+        elif choice == 10:
+            transaction_history()
+
+        elif choice == 11:
+            print("Exiting....")
+            print("\nThank you for using this application\n")
+            break
+
+        else:
+            print("Invalid choice")
+
+
+if __name__ == "__main__":
+    main_app()

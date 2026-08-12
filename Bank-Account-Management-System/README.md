@@ -1,47 +1,34 @@
-# 🏦 BANK ACCOUNT MANAGEMENT SYSTEM
+# Bank Account Management System
 
-## 📖 Project Overview
+A Python-based command-line Bank Account Management System that allows users to securely manage bank accounts, perform transactions (deposits, withdrawals, transfers), and track transaction history with data persistence using JSON.
 
-The **Bank Account Management System** is a Python-based command-line application that allows users to perform various banking operations such as creating accounts, depositing and withdrawing money, transferring funds, checking balances, updating account details, deleting accounts, and viewing transaction history.
+## Features
 
-The project uses **JSON file handling** to store account information permanently and provides a simple menu-driven interface for easy interaction.
-
----
-
-# ✨ Features
-
-* 🔐 User Login Authentication
-* ➕ Create New Bank Account
-* 📄 View All Accounts
-* 🔍 Search Account by Account Number
-* 💰 Deposit Money
-* 💸 Withdraw Money
-* 🔄 Transfer Money Between Accounts
-* ✏️ Update Account Details
-* ❌ Delete Account
-* 💳 Check Account Balance
-* 📜 View Transaction History
-* 🚪 Exit Application
+- **Secure Login Authentication**: Simple credential check before accessing the system.
+- **Account Management**: Create, view, search, update, and delete bank accounts.
+- **Transaction Operations**: Deposit funds, withdraw money with balance validation, and transfer money between accounts.
+- **Record Keeping**: Check current balances and view detailed transaction histories.
+- **JSON Data Persistence**: Automatically saves all accounts and transactional data locally.
+- **Automated Testing & CI/CD**: Fully tested using `pytest` with automated continuous integration pipelines via GitHub Actions.
 
 ---
 
-# 🛠️ Technologies Used
-
-* Python 3
-* JSON
-* File Handling
-* VS Code
-
----
-
-# 📂 Project Structure
+## Project Structure
 
 ```text
 Bank-Account-Management-System/
 │
-├── main.py
-├── accounts.json
-└── README.md
+├── .github/
+│   └── workflows/
+│       └── main.yml        # GitHub Actions CI/CD configuration
+│
+├── tests/
+│   └── test_main.py        # Pytest suite for unit testing core functions
+│
+├── main.py                 # Core application script
+├── accounts.json           # Local database for accounts (auto-generated)
+├── .gitignore              # Ignored files/folders (caches, temp files)
+└── README.md               # Project documentation 
 ```
 
 ---
@@ -163,4 +150,4 @@ This project helped me learn:
 
 # ⭐ If you like this project
 
-If you found this project helpful, please consider giving it a **⭐ Star** on GitHub.
+If you found this project helpful, please consider giving it a **⭐ Star** on GitHub 
