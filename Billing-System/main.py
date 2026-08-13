@@ -1,5 +1,6 @@
 from auth import login
 from billing import generate_bill
+from db_operations import initialize_database
 from history import view_bill_history
 from logger_config import logger
 from product import (
@@ -12,13 +13,12 @@ from product import (
 
 
 def main():
-    logger.info("Billing System started.")
+    # Ensure database and tables exist when the app starts
+    initialize_database()
 
     print("===== Welcome to Billing System =====")
 
     if not login():
-        print("Access Denied!")
-        logger.warning("User failed authentication.")
         return
 
     logger.info("Admin logged in successfully.")
@@ -34,37 +34,34 @@ def main():
         print("7. View Bill History")
         print("8. Exit")
 
-        choice = input("Enter your choice: ")
+        try:
+            choice = int(input("Enter your choice: "))
 
-        if choice == "1":
-            add_product()
+            if choice == 1:
+                add_product()
+            elif choice == 2:
+                view_products()
+            elif choice == 3:
+                search_product()
+            elif choice == 4:
+                update_product()
+            elif choice == 5:
+                delete_product()
+            elif choice == 6:
+                generate_bill()
+            elif choice == 7:
+                view_bill_history()
+            elif choice == 8:
+                print("Thank you for using Billing System!")
+                logger.info("Application exited.")
+                break
+            else:
+                print("Invalid choice! Please enter a number between 1 and 8.")
+                logger.warning(f"Invalid menu choice entered: {choice}")
 
-        elif choice == "2":
-            view_products()
-
-        elif choice == "3":
-            search_product()
-
-        elif choice == "4":
-            update_product()
-
-        elif choice == "5":
-            delete_product()
-
-        elif choice == "6":
-            generate_bill()
-
-        elif choice == "7":
-            view_bill_history()
-
-        elif choice == "8":
-            logger.info("Billing System closed.")
-            print("Thank you for using Billing System!")
-            break
-
-        else:
-            print("Invalid choice!")
-            logger.warning("Invalid menu choice entered: %s", choice)
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            logger.warning("Non-integer input entered for menu choice.")
 
 
 if __name__ == "__main__":

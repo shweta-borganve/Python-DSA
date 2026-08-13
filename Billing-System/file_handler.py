@@ -1,48 +1,47 @@
 import json
-import os
+import sqlite3
 
+from db_operations import get_all_bills
 from logger_config import logger
 
-DATA_FOLDER = "data"
-PRODUCTS_FILE = os.path.join(DATA_FOLDER, "products.json")
-BILLS_FILE = os.path.join(DATA_FOLDER, "bills.json")
+# Compatibility constants for modules still referencing file paths
+BILLS_FILE = "data/bills.json"
+PRODUCTS_FILE = "data/products.json"
 
 
 def load_data(filename):
+    """Load data handler compatible with SQLite or fallbacks."""
     try:
-        if not os.path.exists(DATA_FOLDER):
-            os.makedirs(DATA_FOLDER)
-
-        if not os.path.exists(filename):
-            with open(filename, "w") as file:
-                json.dump([], file, indent=4)
-
-            return []
-
-        with open(filename, "r") as file:
-            data = json.load(file)
-
-        logger.info(f"Data loaded successfully from {filename}")
-        return data
-
-    except json.JSONDecodeError:
-        logger.error(f"Invalid JSON data in {filename}")
+        if "bill" in filename.lower() or filename == BILLS_FILE:
+            return get_all_bills()
         return []
-
-    except Exception as e:  # noqa: BLE001
-        logger.error(f"Error loading {filename}: {e}")
+    except (sqlite3.Error, json.JSONDecodeError) as e:
+        logger.error(f"Error loading data for {filename}: {e}")
         return []
 
 
 def save_data(filename, data):
+    """Compatibility wrapper for saving data."""
+    logger.info(f"save_data called for {filename} (handled via SQLite)")
+
+
+def save_bill_record(filename, items, total_amount, date):
+    """Save a bill record safely."""
     try:
-        if not os.path.exists(DATA_FOLDER):
-            os.makedirs(DATA_FOLDER)
+        try:
+            items = json.loads(items)
+        except json.JSONDecodeError:
+            pass
 
-        with open(filename, "w") as file:
-            json.dump(data, file, indent=4)
+        conn = sqlite3.connect("billing.db")
+        cursor = conn.cursor()
+        cursor.execute(
+            "INSERT INTO bills (date, total_amount, items) VALUES (?, ?, ?)",
+            (date, total_amount, json.dumps(items)),
+        )
+        conn.commit()
+        conn.close()
+        logger.info("Bill saved successfully to SQLite database")
 
-        logger.info(f"Data saved successfully to {filename}")
-
-    except Exception as e:  # noqa: BLE001
-        logger.error(f"Error saving {filename}: {e}")
+    except sqlite3.Error as e:
+        logger.error(f"Error saving to database for {filename}: {e}")

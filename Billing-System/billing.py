@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 
+from db_operations import update_product_quantity
 from file_handler import BILLS_FILE, PRODUCTS_FILE, load_data, save_data
 from logger_config import logger
 
@@ -29,7 +30,7 @@ def generate_bill():
 
             for product in products:
 
-                if product["id"] == product_id:
+                if int(product["product_id"]) == product_id:
                     found = True
 
                     if quantity <= 0:
@@ -45,7 +46,7 @@ def generate_bill():
                     amount = product["price"] * quantity
 
                     item = {
-                        "product_id": product["id"],
+                        "product_id": product["product_id"],
                         "name": product["name"],
                         "price": product["price"],
                         "quantity": quantity,
@@ -56,6 +57,9 @@ def generate_bill():
 
                     product["quantity"] -= quantity
                     total += amount
+
+                    # Immediately update stock in SQLite database
+                    update_product_quantity(product["product_id"], product["quantity"])
 
                     print(f"Added {product['name']} to bill.")
                     break
@@ -80,16 +84,14 @@ def generate_bill():
     }
 
     bills.append(bill)
-
-    save_data(PRODUCTS_FILE, products)
-    save_data(BILLS_FILE, bills)
+    save_data(BILLS_FILE, bill)
 
     print("\n===== BILL =====")
     print(f"Bill ID: {bill['bill_id']}")
     print(f"Date: {bill['date']}")
 
     for item in items:
-        print(f"{item['name']} x {item['quantity']} = " f"₹{item['amount']:.2f}")
+        print(f"{item['name']} x {item['quantity']} = ₹{item['amount']:.2f}")
 
     print(f"Total: ₹{total:.2f}")
 
