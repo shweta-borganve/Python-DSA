@@ -351,3 +351,67 @@
 2026-08-13 19:18:24,714 - INFO - Application exited.
 2026-08-13 19:18:24,732 - INFO - Admin logged in successfully.
 2026-08-13 19:18:24,734 - INFO - Application exited.
+2026-08-14 14:16:30,083 - INFO - Admin logged in successfully.
+2026-08-14 14:16:30,092 - INFO - Admin logged in successfully.
+2026-08-14 14:18:25,741 - INFO - save_data called for data/products.json (handled via SQLite)
+2026-08-14 14:18:25,745 - INFO - Product added: laptop
+2026-08-14 14:18:45,552 - INFO - save_data called for data/products.json (handled via SQLite)
+2026-08-14 14:18:45,554 - INFO - Product added: Mouse
+2026-08-14 14:19:07,381 - INFO - save_data called for data/products.json (handled via SQLite)
+2026-08-14 14:19:07,384 - INFO - Product added: notebook
+2026-08-14 14:19:26,644 - INFO - save_data called for data/products.json (handled via SQLite)
+2026-08-14 14:19:26,646 - INFO - Product added: shampoo
+2026-08-14 14:19:42,096 - INFO - save_data called for data/products.json (handled via SQLite)
+2026-08-14 14:19:42,098 - INFO - Product added: brush
+2026-08-14 14:19:44,979 - WARNING - No products available to display.
+2026-08-14 14:20:01,228 - INFO - Application exited.
+2026-08-14 14:23:01,124 - INFO - Admin logged in successfully.
+2026-08-14 14:23:01,127 - INFO - Admin logged in successfully.
+2026-08-14 14:23:04,157 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-14 14:23:04,159 - WARNING - No products available to display.
+2026-08-14 14:23:06,915 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-14 14:23:20,888 - ERROR - Error saving data for data/products.json: table products has no column named id
+2026-08-14 14:23:20,890 - INFO - Product added: laptop
+2026-08-14 14:23:23,882 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-14 14:23:23,884 - WARNING - No products available to display.
+2026-08-14 14:26:05,032 - INFO - Application exited.
+2026-08-14 14:26:20,390 - INFO - Admin logged in successfully.
+2026-08-14 14:26:20,392 - INFO - Admin logged in successfully.
+2026-08-14 14:26:25,061 - WARNING - Invalid input while adding product.
+2026-08-14 14:26:40,534 - ERROR - Database error while adding product: no such column: id
+2026-08-14 14:27:18,167 - ERROR - Database error while adding product: no such column: id
+2026-08-14 14:28:22,077 - INFO - Application exited.
+2026-08-14 14:28:37,981 - INFO - Admin logged in successfully.
+2026-08-14 14:28:37,984 - INFO - Admin logged in successfully.
+2026-08-14 14:28:48,300 - INFO - Product added: laptop
+2026-08-14 14:30:18,201 - INFO - Product added: Wireless mouse
+2026-08-14 14:30:34,222 - INFO - Product added: shampoo
+2026-08-14 14:30:59,863 - INFO - Product added: sugar
+2026-08-14 14:31:19,394 - INFO - Product added: rice
+2026-08-14 14:31:28,072 - INFO - Product searched: 1
+2026-08-14 14:31:32,482 - WARNING - Product not found: 6
+2026-08-14 14:31:48,795 - INFO - Product updated: 1
+2026-08-14 14:32:05,969 - INFO - Product deleted: 1
+2026-08-14 14:32:31,792 - INFO - Bill generated successfully: 1
+2026-08-14 14:32:51,844 - INFO - Bill generated successfully: 1
+2026-08-14 14:33:00,957 - WARNING - Bill history requested but no bills found.
+2026-08-14 14:35:20,587 - INFO - Application exited.
+2026-08-14 14:35:32,802 - INFO - Admin logged in successfully.
+2026-08-14 14:35:32,805 - INFO - Admin logged in successfully.
+2026-08-14 14:35:40,624 - WARNING - Bill history requested but no bills found.
+2026-08-14 14:35:59,205 - INFO - Bill generated successfully: 1
+2026-08-14 14:36:11,064 - INFO - Application exited.
+2026-08-14 17:32:49,309 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,311 - INFO - Application exited.
+2026-08-14 17:32:49,320 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,322 - INFO - Application exited.
+2026-08-14 17:32:49,336 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,337 - INFO - Application exited.
+2026-08-14 17:32:49,391 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,393 - INFO - Application exited.
+2026-08-14 17:32:49,410 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,411 - INFO - Application exited.
+2026-08-14 17:32:49,426 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,427 - INFO - Application exited.
+2026-08-14 17:32:49,445 - INFO - Admin logged in successfully.
+2026-08-14 17:32:49,446 - INFO - Application exited.
