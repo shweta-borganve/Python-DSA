@@ -619,3 +619,10 @@
 2026-08-15 09:05:57,465 - INFO - Admin logged in successfully.
 2026-08-15 09:05:57,481 - WARNING - Low stock warning displayed for 3 item(s).
 2026-08-15 09:05:57,484 - INFO - Application exited.
+2026-08-20 13:41:20,235 - INFO - Admin logged in successfully.
+2026-08-20 13:41:20,248 - INFO - Admin logged in successfully.
+2026-08-20 13:42:48,295 - WARNING - Invalid price entered: -40.0
+2026-08-20 13:43:20,272 - WARNING - Invalid price entered: -5.0
+2026-08-20 13:43:46,820 - INFO - Product added: butter (ID: 103)
+2026-08-20 13:45:11,316 - WARNING - No bill history available to display.
+2026-08-20 13:45:16,127 - INFO - Application exited.
