@@ -20,8 +20,3 @@ ignore_missing_imports = true
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "--cov=. --cov-report=term-missing" 
-
-[tool.bandit]
-exclude_dirs = ["tests", "venv"]
-severity = "medium"
-confidence = "medium" 
