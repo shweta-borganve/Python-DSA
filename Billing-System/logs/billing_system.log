@@ -626,3 +626,87 @@
 2026-08-20 13:43:46,820 - INFO - Product added: butter (ID: 103)
 2026-08-20 13:45:11,316 - WARNING - No bill history available to display.
 2026-08-20 13:45:16,127 - INFO - Application exited.
+2026-08-28 09:36:27,203 - INFO - Admin logged in successfully.
+2026-08-28 09:36:27,308 - INFO - Database and tables created successfully!
+2026-08-28 09:36:52,134 - ERROR - Database error while adding product: no such column: id
+2026-08-28 09:38:08,245 - INFO - Admin logged in successfully.
+2026-08-28 09:38:08,319 - INFO - Database and tables created successfully!
+2026-08-28 09:38:32,018 - ERROR - Database error while adding product: no such column: id
+2026-08-28 09:39:49,334 - INFO - Admin logged in successfully.
+2026-08-28 09:39:49,439 - INFO - Database and tables created successfully!
+2026-08-28 09:40:04,066 - ERROR - Database error while adding product: no such column: id
+2026-08-28 09:44:54,778 - INFO - Admin logged in successfully.
+2026-08-28 09:44:54,872 - INFO - Database and tables created successfully!
+2026-08-28 09:45:13,597 - INFO - Product added: sugar (ID: 101)
+2026-08-28 09:45:37,471 - INFO - Product added: milk (ID: 102)
+2026-08-28 09:46:14,506 - INFO - Product updated: 101
+2026-08-28 09:46:38,801 - INFO - Product added: sugar (ID: 103)
+2026-08-28 09:47:32,154 - INFO - Product deleted: 101
+2026-08-28 09:47:50,078 - INFO - Product searched: 102
+2026-08-28 09:48:01,391 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-28 09:48:01,392 - WARNING - Bill generation attempted with no products.
+2026-08-28 09:48:15,677 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-28 09:48:15,679 - WARNING - Bill generation attempted with no products.
+2026-08-28 09:51:01,039 - INFO - Admin logged in successfully.
+2026-08-28 09:51:01,074 - INFO - Database and tables created successfully!
+2026-08-28 09:51:09,601 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-28 09:51:09,603 - WARNING - Bill generation attempted with no products.
+2026-08-28 09:51:59,957 - INFO - Product added: tea powder (ID: 104)
+2026-08-28 09:52:11,421 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-28 09:52:11,423 - WARNING - Bill generation attempted with no products.
+2026-08-28 09:53:33,778 - INFO - Admin logged in successfully.
+2026-08-28 09:53:33,806 - INFO - Database and tables created successfully!
+2026-08-28 09:53:43,370 - ERROR - Error loading data for data/products.json: no such column: id
+2026-08-28 09:53:43,371 - WARNING - Bill generation attempted with no products.
+2026-08-28 10:02:12,524 - INFO - Admin logged in successfully.
+2026-08-28 10:02:12,554 - INFO - Database and tables created successfully!
+2026-08-28 10:02:51,712 - ERROR - Database error during bill generation: table bills has no column named date
+2026-08-28 10:04:41,668 - INFO - Admin logged in successfully.
+2026-08-28 10:04:41,691 - INFO - Database and tables created successfully!
+2026-08-28 10:05:06,618 - ERROR - Database error during bill generation: no such column: id
+2026-08-28 10:06:41,521 - INFO - Admin logged in successfully.
+2026-08-28 10:06:41,548 - INFO - Database and tables created successfully!
+2026-08-28 10:07:05,286 - ERROR - Database error during bill generation: Incorrect number of bindings supplied. The current statement uses 2, and there are 3 supplied.
+2026-08-28 10:10:03,961 - INFO - Admin logged in successfully.
+2026-08-28 10:10:03,987 - INFO - Database and tables created successfully!
+2026-08-28 10:10:37,943 - ERROR - Database error while viewing bills: no such column: id
+2026-08-28 10:12:03,853 - INFO - Admin logged in successfully.
+2026-08-28 10:12:03,879 - INFO - Database and tables created successfully!
+2026-08-28 10:12:35,671 - ERROR - Database error while viewing bills: no such column: date
+2026-08-28 10:13:37,609 - INFO - Product added: biscuit (ID: 101)
+2026-08-28 10:14:04,285 - INFO - Product added: salt (ID: 105)
+2026-08-28 10:14:41,641 - ERROR - Database error while viewing bills: no such column: date
+2026-08-28 10:17:24,495 - INFO - Admin logged in successfully.
+2026-08-28 10:17:24,525 - INFO - Database and tables created successfully!
+2026-08-28 10:17:59,998 - ERROR - Database error while viewing bills: no such column: date
+2026-08-28 10:19:44,509 - INFO - Admin logged in successfully.
+2026-08-28 10:19:44,537 - INFO - Database and tables created successfully!
+2026-08-28 10:22:13,122 - INFO - Admin logged in successfully.
+2026-08-28 10:22:13,148 - INFO - Database and tables created successfully!
+2026-08-28 10:22:47,642 - ERROR - Database error in sales report: no such column: items
+2026-08-28 10:27:06,243 - INFO - Admin logged in successfully.
+2026-08-28 10:27:06,266 - INFO - Database and tables created successfully!
+2026-08-28 10:27:24,156 - INFO - Sales report generated successfully.
+2026-08-28 10:37:50,874 - INFO - Admin logged in successfully.
+2026-08-28 10:37:50,901 - INFO - Database and tables created successfully!
+2026-08-28 10:38:50,905 - WARNING - Duplicate product ID: 101
+2026-08-28 10:39:22,899 - WARNING - Invalid price entered: -22.0
+2026-08-28 11:02:55,683 - INFO - Admin logged in successfully.
+2026-08-28 11:02:55,723 - INFO - Database and tables created successfully!
+2026-08-28 11:03:35,314 - INFO - Product updated: 102
+2026-08-28 11:05:41,574 - INFO - Product updated: 102
+2026-08-28 11:06:13,727 - INFO - Product updated: 103
+2026-08-28 11:06:46,792 - INFO - Product updated: 104
+2026-08-28 11:06:58,523 - INFO - Product searched: 101
+2026-08-28 11:07:08,103 - WARNING - Product not found: 100
+2026-08-28 11:07:56,619 - INFO - Sales report generated successfully.
+2026-08-28 11:08:30,938 - INFO - Admin logged in successfully.
+2026-08-28 11:08:30,966 - INFO - Database and tables created successfully!
+2026-08-28 11:08:36,591 - INFO - Sales report generated successfully.
+2026-09-10 11:46:05,508 - INFO - Admin logged in successfully.
+2026-09-10 11:46:05,555 - INFO - Database and tables created successfully!
+2026-09-10 11:46:36,951 - INFO - Product updated: 101
+2026-09-10 11:46:53,764 - INFO - Product deleted: 105
+2026-09-10 11:47:04,649 - INFO - Product searched: 101
+2026-09-10 11:47:12,359 - WARNING - Product not found: avb
+2026-09-10 11:47:49,528 - INFO - Sales report generated successfully.
